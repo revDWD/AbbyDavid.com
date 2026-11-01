@@ -107,16 +107,21 @@ a:hover { color: var(--accent); }
 .section-head a { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; }
 
 /* ---------- Projects ----------
-   One <article class="featured"> on top, then an <ol class="entries">.
-   Copy a block from index.html to add one. */
-.featured {
+   Homepage: a few <article class="work"> blocks (text + screenshot, sides alternate
+   with class "flip"). The full list on /projects/ uses <ol class="entries">. */
+.work {
   position: relative;
-  padding: clamp(1.5rem, 4vw, 2.5rem) 0;
-  border-top: 2px solid var(--ink);
-  border-bottom: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  align-items: center;
+  padding: clamp(1.75rem, 4vw, 3rem) 0;
+  border-top: 1px solid var(--rule);
 }
-.featured .meta { margin: 0 0 1rem; }
-.featured h3 {
+.work:first-of-type { border-top: 2px solid var(--ink); }
+.work.flip .shot { order: -1; }
+.work .meta { margin: 0 0 1rem; }
+.work h3 {
   font-family: var(--serif);
   font-weight: 400;
   font-size: clamp(2rem, 5.5vw, 3.25rem);
@@ -124,11 +129,30 @@ a:hover { color: var(--accent); }
   letter-spacing: -0.015em;
   margin: 0 0 0.75rem;
 }
-.featured p.desc { font-family: var(--serif); font-size: 1.2rem; line-height: 1.45; max-width: 34rem; margin: 0 0 1.25rem; }
+.work p.desc { font-family: var(--serif); font-size: 1.15rem; line-height: 1.45; margin: 0 0 1rem; max-width: 30rem; }
+.work .fine { color: var(--muted); font-size: 0.95rem; margin: 0 0 1.25rem; max-width: 30rem; }
 
-/* Optional image/screenshot slot: <figure class="shot"><img ...></figure> */
-.shot { margin: 1.5rem 0 0; border: 1px solid var(--rule); }
+/* Screenshot sits slightly off-kilter, like it was pinned there; it straightens on hover */
+.shot {
+  margin: 0;
+  background: var(--paper-deep);
+  border: 1px solid var(--ink);
+  box-shadow: 6px 6px 0 var(--rule);
+  transform: rotate(-0.8deg);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.work.flip .shot { transform: rotate(0.8deg); }
 .shot img { display: block; width: 100%; height: auto; }
+.shot.pixel img { image-rendering: pixelated; }
+.work:hover .shot, .work:focus-within .shot { transform: rotate(0deg); box-shadow: 10px 10px 0 var(--rule); }
+.work:focus-within { outline: 2px solid var(--accent); outline-offset: 4px; }
+.work .stretch:focus-visible { outline: none; }
+
+
+@media (max-width: 46rem) {
+  .work { grid-template-columns: 1fr; }
+  .work.flip .shot { order: 0; }
+}
 
 .entries { list-style: none; margin: 0; padding: 0; }
 .entry {
@@ -151,10 +175,10 @@ a:hover { color: var(--accent); }
 .stretch:hover { color: inherit; }
 
 .go { font-family: var(--mono); color: var(--accent); transition: transform 0.2s; display: inline-block; }
-.entry:hover, .featured:hover { background: var(--paper-deep); }
+.entry:hover { background: var(--paper-deep); }
 .entry:hover { padding-inline: 0.75rem; }
-.entry:hover .go, .featured:hover .go { transform: translateX(4px); }
-.entry:focus-within, .featured:focus-within { outline: 2px solid var(--accent); outline-offset: 2px; }
+.entry:hover .go, .work:hover .go { transform: translateX(4px); }
+.entry:focus-within { outline: 2px solid var(--accent); outline-offset: 2px; }
 .stretch:focus-visible { outline: none; }
 
 /* Status labels: a small dot + word */
@@ -208,3 +232,130 @@ h2 { font-family: var(--mono); font-size: 0.8rem; font-weight: 600; letter-spaci
   html { scroll-behavior: auto; }
   * { transition: none !important; }
 }
+
+/* ---------- Pixel pets ----------
+   Sprite sheets in /assets/pets/ hold 4 frames of 16px: idle, blink, happy, spare.
+   Size a sprite with --s (pixels per sprite pixel). */
+.sprite {
+  --s: 4;
+  display: inline-block;
+  width: calc(16px * var(--s));
+  height: calc(16px * var(--s));
+  background: var(--sheet) 0 0 / calc(64px * var(--s)) calc(16px * var(--s)) no-repeat;
+  image-rendering: pixelated;
+  animation: idle 4s steps(1, end) infinite;
+}
+.sprite.cat { --sheet: url("/assets/pets/cat.svg"); }
+.sprite.dog { --sheet: url("/assets/pets/dog.svg"); }
+.sprite.happy { animation: none; background-position: calc(-32px * var(--s)) 0; }
+@keyframes idle {
+  0%   { background-position: 0 0; }
+  62%  { background-position: calc(-16px * var(--s)) 0; }
+  68%  { background-position: 0 0; }
+  90%  { background-position: calc(-16px * var(--s)) 0; }
+  94%  { background-position: 0 0; }
+}
+
+/* ---------- Meet the crew (homepage) ---------- */
+.crew { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem 2.25rem; }
+.crew li { display: flex; align-items: flex-end; gap: 0.6rem; }
+.crew .sprite { --s: 3; }
+.crew li:nth-child(2) .sprite { animation-delay: -1s; }
+.crew li:nth-child(3) .sprite { animation-delay: -2s; }
+.crew li:nth-child(4) .sprite { animation-delay: -3s; }
+.crew li:hover .sprite { animation: none; background-position: calc(-32px * var(--s)) 0; }
+.crew strong { display: block; font-family: var(--serif); font-weight: 400; font-size: 1.25rem; line-height: 1.1; }
+.crew .mono { display: block; font-size: 0.7rem; }
+.crew-link { margin: 1.5rem 0 0; font-family: var(--mono); font-size: 0.85rem; }
+
+/* ---------- /pets/ ---------- */
+.pets-page { padding-top: clamp(2.5rem, 7vw, 4.5rem); }
+.pets-page h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(2rem, 6vw, 3.25rem); line-height: 1.05; letter-spacing: -0.015em; margin: 0 0 0.5rem; }
+.pets-page .lede { margin: 0 0 2rem; color: var(--muted); }
+
+.picker { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0 0 1rem; }
+.picker button {
+  display: flex; align-items: flex-end; gap: 0.4rem;
+  font: inherit; color: inherit; cursor: pointer;
+  padding: 0.5rem 0.9rem 0.4rem 0.6rem;
+  background: transparent;
+  border: 1px solid var(--rule);
+  min-height: 3.25rem;
+}
+.picker .sprite { --s: 2; animation: none; }
+.picker .mono { color: inherit; font-size: 0.8rem; }
+.picker button:hover { border-color: var(--ink); }
+.picker button[aria-pressed="true"] { border-color: var(--ink); background: var(--paper-deep); box-shadow: 3px 3px 0 var(--ink); }
+
+.room {
+  position: relative;
+  background: var(--paper-deep);
+  border: 2px solid var(--ink);
+  box-shadow: 6px 6px 0 var(--rule);
+  padding: 1rem 1rem 1.25rem;
+}
+.room-head { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+.hearts { display: flex; gap: 4px; }
+.heart { width: 21px; height: 18px; fill: var(--rule); }
+.heart.on { fill: var(--accent); }
+
+.stage {
+  position: relative;
+  height: calc(16px * 9 + 4rem);
+  display: flex; justify-content: center; align-items: flex-end;
+  border-bottom: 2px dashed var(--rule);
+  margin: 0.5rem 0 0;
+  overflow: hidden;
+}
+.stage .sprite { --s: 9; cursor: pointer; margin-bottom: 4px; transition: transform 0.35s steps(4); }
+.stage .sprite.near { transform: translateY(8px) scale(1.12); transform-origin: bottom; }
+.stage .sprite.hop { animation: hop 0.5s steps(4) 2; }
+.stage .sprite.munch { animation: munch 0.3s steps(2) 5; }
+@keyframes hop { 50% { transform: translateY(-18px); } }
+@keyframes munch { 50% { transform: translateY(3px); } }
+
+.toy, .bowl { position: absolute; bottom: 4px; width: 36px; height: 36px; }
+.bowl { width: 48px; height: 18px; left: calc(50% + 6.5rem); }
+.toy { left: -40px; }
+.toy.roll { animation: roll 1.6s steps(16) forwards; }
+@keyframes roll { to { transform: translateX(calc(100vw)); } }
+.toy-wrap { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+
+.fx { position: absolute; inset: 0; pointer-events: none; }
+.float-heart { position: absolute; bottom: 55%; width: 21px; height: 18px; fill: var(--accent); animation: rise 1.2s steps(8) forwards; }
+@keyframes rise { to { transform: translateY(-70px); opacity: 0; } }
+
+.photo { display: block; max-width: 12rem; height: auto; margin: 1rem auto 0; border: 1px solid var(--ink); }
+.say { min-height: 3.2em; margin: 1rem 0 0.75rem; font-family: var(--mono); font-size: 0.9rem; text-align: center; }
+
+.actions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+.actions button {
+  font: 600 0.9rem var(--mono); letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--ink); background: var(--paper);
+  border: 2px solid var(--ink); box-shadow: 3px 3px 0 var(--ink);
+  min-height: 3.5rem; cursor: pointer; touch-action: manipulation;
+}
+.actions button:hover { background: #fffdf6; }
+.actions button:active { transform: translate(3px, 3px); box-shadow: none; }
+
+.found { margin: 1rem 0 0; font-family: var(--mono); font-size: 0.75rem; color: var(--muted); text-align: center; }
+.stamp { position: absolute; top: 0.9rem; left: 50%; transform: translateX(-50%) rotate(-3deg); padding: 0.1rem 0.5rem; border: 1px solid var(--accent); color: var(--accent); font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; }
+
+@media (max-width: 36rem) {
+  .stage .sprite { --s: 7; }
+  .stage { height: calc(16px * 7 + 4rem); }
+  .bowl { left: calc(50% + 4.5rem); }
+  .picker { display: grid; grid-template-columns: 1fr 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sprite, .stage .sprite.hop, .stage .sprite.munch, .toy.roll { animation: none !important; }
+  .stage .sprite { transition: none; }
+  .float-heart { animation: none; }
+}
+
+[hidden] { display: none !important; }
+
+.wordmark, .site-nav a { white-space: nowrap; }
+.site-header .wrap { flex-wrap: wrap; row-gap: 0.5rem; }
+@media (max-width: 30rem) { .site-nav ul { gap: 1rem; } }

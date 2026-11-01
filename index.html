@@ -31,6 +31,7 @@
       <nav class="site-nav" aria-label="Main">
         <ul>
           <li><a href="#projects">Projects</a></li>
+          <li><a href="/pets/">Pets</a></li>
           <li><a href="#about">About</a></li>
           <li><a class="ext" href="https://github.com/revDWD">GitHub ↗</a></li>
         </ul>
@@ -51,72 +52,72 @@
 
     <div class="wrap">
 
-      <!-- PROJECTS
-           Keep the homepage to a curated handful (about 5–7): one featured project,
-           the rest in the list. The complete archive lives at /projects/.
-           To add a project, copy an <li class="entry"> block. Number ("No.") is just
-           the order they were made. Types: TOOL, EXPERIMENT, PROJECT, GUIDE, RECIPE, BUILD, TRIP.
-           Status: use class "status" for live/done, "status concept" for ideas. -->
+      <!-- PROJECTS: a curated selection. Keep this to the favorites/current (2–4 big blocks);
+           everything else lives in /projects/. To feature a project, copy an <article class="work">.
+           Add class "flip" to put the screenshot on the left. Delete the <figure> if there's no image.
+           Types: TOOL, EXPERIMENT, PROJECT, GUIDE, RECIPE, BUILD, TRIP.
+           Status: class "status" for live/done, "status concept" for ideas. -->
       <section id="projects" class="section" aria-labelledby="projects-title">
         <div class="section-head">
           <h2 id="projects-title">Things we've made</h2>
           <a href="/projects/">All projects →</a>
         </div>
 
-        <article class="featured">
-          <p class="meta mono">No. 04 · Experiment · Oct 2026 · <span class="status">Live</span></p>
-          <h3><a class="stretch" href="https://revdwd.github.io/ecotox-id/">Ecotox ID</a></h3>
-          <p class="desc">A retro battle-screen game for identifying crop pests, pollinators, natural enemies and ecotoxicology test species.</p>
-          <span class="go mono" aria-hidden="true">Open ↗</span>
-          <!-- Optional screenshot: <figure class="shot"><img src="/assets/ecotox-id.png" alt="Describe the screenshot" width="1200" height="700" loading="lazy"></figure> -->
+        <article class="work">
+          <div>
+            <p class="meta mono">No. 04 · Experiment · Oct 2026 · <span class="status">Live</span></p>
+            <h3><a class="stretch" href="https://revdwd.github.io/ecotox-id/">Ecotox ID</a></h3>
+            <p class="desc">A free, offline-friendly quiz with a retro battle-screen look. Identify real organisms from iNaturalist photos and fill in your Field guide.</p>
+            <p class="fine">Crop pests, pollinators, natural enemies and ecotoxicology test species.</p>
+            <span class="go mono" aria-hidden="true">Play ↗</span>
+          </div>
+          <figure class="shot pixel">
+            <img src="/assets/ecotox-id.webp" width="636" height="425" loading="lazy" alt="Ecotox ID title screen: a pixel-art logo over a grassy field with a grasshopper silhouette.">
+          </figure>
         </article>
 
-        <ol class="entries">
-          <li class="entry">
-            <p class="meta mono">No. 03 · Experiment<br>Oct 2026 · <span class="status">Live</span></p>
-            <div>
-              <h3><a class="stretch" href="https://revdwd.github.io/spirit-bomb-donations/">Spirit Bomb Donations</a></h3>
-              <p>A humorous parody site for donating tokens to vibe coding.</p>
-            </div>
-            <span class="go" aria-hidden="true">↗</span>
-          </li>
-          <li class="entry">
-            <p class="meta mono">No. 02 · Project<br>Oct 2026 · <span class="status concept">Concept</span></p>
-            <div>
-              <h3><a class="stretch" href="https://revdwd.github.io/public-move/">Public Move</a></h3>
-              <p>A concept app for public transportation built around self-driving vehicles, as a public right.</p>
-            </div>
-            <span class="go" aria-hidden="true">↗</span>
-          </li>
-          <li class="entry">
-            <p class="meta mono">No. 01 · Experiment<br>Oct 2026 · <span class="status">Live</span></p>
-            <div>
-              <h3><a class="stretch" href="https://revdwd.github.io/oregon-trail-dle/">Oregon Trail-dle</a></h3>
-              <p>A fitness tracker with an Oregon Trail game layer.</p>
-            </div>
-            <span class="go" aria-hidden="true">↗</span>
-          </li>
-        </ol>
+        <article class="work flip">
+          <div>
+            <p class="meta mono">No. 01 · Experiment · Oct 2026 · <span class="status">Live</span></p>
+            <h3><a class="stretch" href="https://revdwd.github.io/oregon-trail-dle/">Oregon Trail DLE</a></h3>
+            <p class="desc">A fitness tracker with a game layer. Log the miles you walk, run, or ride and watch a community wagon head west along the 2,040-mile trail.</p>
+            <p class="fine">Independence, Missouri to Oregon City, Oregon. Every 5 miles in your private journal unlocks a hunting minigame.</p>
+            <span class="go mono" aria-hidden="true">Open ↗</span>
+          </div>
+          <figure class="shot">
+            <img src="/assets/oregon-trail-dle.webp" width="990" height="568" loading="lazy" alt="Illustrated map of the United States with the Oregon Trail route marked from Missouri to Oregon and a covered wagon near the start.">
+          </figure>
+        </article>
+
       </section>
 
-      <!-- NOTES: short writeups, "things we learned". Intentionally quiet.
-           When there are posts, replace the paragraph with a list like:
-           <ul class="notes">
-             <li class="note">
-               <p class="meta mono"><time datetime="2026-12-01">Dec 2026</time> · Guide</p>
-               <div><h3><a href="/notes/post-name/">Post title</a></h3><p>One-sentence description.</p></div>
-             </li>
-           </ul>
-           and add a "Notes" link to the nav at the top. -->
+      <section id="crew" class="section" aria-labelledby="crew-title">
+        <div class="section-head"><h2 id="crew-title">Meet the crew</h2></div>
+        <ul class="crew">
+          <li><span class="sprite dog" aria-hidden="true"></span><span><strong>Jack</strong><span class="mono">Chihuahua</span></span></li>
+          <li><span class="sprite cat" aria-hidden="true"></span><span><strong>Albert</strong><span class="mono">Cat</span></span></li>
+          <li><span class="sprite cat" aria-hidden="true"></span><span><strong>Elda</strong><span class="mono">Cat</span></span></li>
+          <li><span class="sprite cat" aria-hidden="true"></span><span><strong>Shetland</strong><span class="mono">Cat</span></span></li>
+        </ul>
+        <p class="crew-link"><a href="/pets/">Visit the pets →</a></p>
+      </section>
+
+      <!-- NOTES: not shown until there's a real note. When there is one, add this section
+           (and a "Notes" link in the nav), listing the latest 3:
       <section id="notes" class="section" aria-labelledby="notes-title">
         <div class="section-head"><h2 id="notes-title">Notes</h2></div>
-        <p class="notes-quiet">Short writeups of things we figure out will end up here. Nothing yet.</p>
+        <ul class="notes">
+          <li class="note">
+            <p class="meta mono"><time datetime="2026-12-01">Dec 2026</time> · Guide</p>
+            <div><h3><a href="/notes/post-name/">Post title</a></h3><p>One-sentence description.</p></div>
+          </li>
+        </ul>
       </section>
+      -->
 
       <section id="about" class="section about" aria-labelledby="about-title">
         <div class="section-head"><h2 id="about-title">About</h2></div>
         <p>We're Abby and David. This is where we keep the things we make, learn, explore, and want to remember.</p>
-        <!-- Later: link to a fuller page, e.g. <a href="/about/">More →</a> -->
       </section>
 
     </div>
