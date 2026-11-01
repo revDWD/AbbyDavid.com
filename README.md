@@ -39,7 +39,7 @@ Self-hosted (no requests to font CDNs), all under the SIL Open Font License 1.1;
 ## Images
 
 - `assets/ecotox-id.webp`, `assets/oregon-trail-dle.webp`: screenshots of our own projects.
-- The beetle in the About section (Fig. 3) and the framed specimen in the pet room are original line drawings made for this site (inline SVG / CSS). They are generic illustrations, not a particular species, and not David's or anyone's research. No third-party images are used, so there is nothing to attribute. If you add one (for example a macro photo from Wikimedia Commons), record the creator, source URL and license here, and don't hotlink it.
+- The framed specimen in the pet room is an original line drawing made for this site (CSS). No third-party images are used, so there is nothing to attribute. If you add one (for example a macro photo from Wikimedia Commons), record the creator, source URL and license here, and don't hotlink it.
 
 ## Placeholders still to replace
 

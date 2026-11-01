@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="color-scheme" content="light dark">
-  <script>(function(){var t;try{t=localStorage.getItem("abbydavid-theme")}catch(e){}if(t==="light"||t==="dark")document.documentElement.dataset.theme=t})()</script>
+  <script>(function(){var d=document.documentElement,t;try{t=localStorage.getItem("abbydavid-theme")}catch(e){}if(t!=="light"&&t!=="dark")t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";d.setAttribute("data-theme",t);d.style.colorScheme=t})()</script>
 
   <!-- Page metadata. For a new page, change title, description, canonical, and og:* below. -->
   <title>Abby + David</title>
@@ -65,7 +65,7 @@
            Status: class "status" for live/done, "status concept" for ideas. -->
       <section id="projects" class="section" aria-labelledby="projects-title">
         <div class="section-head">
-          <h2 id="projects-title">Spotlight projects</h2>
+          <h2 id="projects-title">Spotlight Projects</h2>
           <a class="more" href="/projects/">The full archive →</a>
         </div>
         <p class="dek">A few things worth poking around in.</p>
@@ -122,44 +122,10 @@
           <h3>David</h3>
           <div class="profile-body">
             <div>
-              <p>David is a research entomologist by day and a habitual tinkerer the rest of the time. He likes insects, useful little tools, overthinking home projects, and figuring out how things work.</p>
-              <p>Evenings and weekends tend to involve wiring something, planning backup power and solar, building with wood, sorting out drainage in the yard, or cooking something more complicated than the situation called for. A camera usually comes along, and so do the trips it ends up on. Now and then there's a weird little internet experiment, and those end up here.</p>
+              <p class="big">David is a research entomologist by day and a habitual tinkerer the rest of the time. He likes insects, useful little tools, and overthinking home projects.</p>
+              <p>Off the clock that means wiring things, planning backup power, building with wood, and cooking something more complicated than the situation called for. A camera usually comes along on the trips. Now and then a weird little internet experiment ends up here.</p>
               <p class="aside-note">This is a personal site. It isn't affiliated with Bayer and doesn't speak for it.</p>
             </div>
-            <figure class="fig specimen">
-              <div class="plate">
-                <svg viewBox="0 0 250 240" role="img" aria-label="Line drawing of a beetle seen from above, with the antenna and wing cover labelled.">
-                  <g transform="translate(100 0)" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
-                    <g id="beetle-half">
-                      <path d="M12 52 L38 43 L52 60 L58 70"/>
-                      <path d="M16 78 L50 79 L64 102 L70 113"/>
-                      <path d="M17 108 L46 124 L50 156 L52 168"/>
-                      <path d="M7 27 C 22 15, 34 12, 52 5" />
-                      <path d="M7 27 C 22 15, 34 12, 52 5" stroke-width="4.5" stroke-dasharray="0.7 5.2" opacity="0.8"/>
-                      <path d="M-6 41 Q-4 49 1 45"/>
-                      <ellipse cx="12" cy="26" rx="3" ry="4.5"/>
-                    </g>
-                    <use href="#beetle-half" transform="scale(-1 1)"/>
-                    <g fill="var(--paper-deep)">
-                      <ellipse cx="0" cy="30" rx="17" ry="13"/>
-                      <path d="M-25 48 Q0 40 25 48 L29 78 Q0 86 -29 78 Z"/>
-                      <path d="M-29 82 Q0 90 29 82 C 42 130 36 190 0 224 C -36 190 -42 130 -29 82 Z"/>
-                    </g>
-                    <path d="M-6 41 Q-4 49 1 45 M6 41 Q4 49 -1 45" />
-                    <ellipse cx="11" cy="26" rx="3" ry="4.5"/><ellipse cx="-11" cy="26" rx="3" ry="4.5"/>
-                    <path d="M0 86 L0 222"/>
-                    <path d="M9 87 C 13 130 10 180 2 216 M-9 87 C -13 130 -10 180 -2 216"/>
-                    <path d="M18 86 C 26 130 22 180 8 210 M-18 86 C -26 130 -22 180 -8 210"/>
-                    <path d="M26 84 C 36 130 30 170 14 200 M-26 84 C -36 130 -30 170 -14 200"/>
-                    <path class="callout" d="M52 5 L84 5"/>
-                    <path class="callout" d="M32 150 L84 150"/>
-                  </g>
-                  <text x="190" y="8">antenna</text>
-                  <text x="190" y="153">elytron</text>
-                </svg>
-              </div>
-              <figcaption><span class="num mono">Fig. 3</span><span class="mono">A generic beetle, drawn for this page. Not a particular species, and not anyone's research.</span></figcaption>
-            </figure>
           </div>
         </div>
 

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="color-scheme" content="light dark">
-  <script>(function(){var t;try{t=localStorage.getItem("abbydavid-theme")}catch(e){}if(t==="light"||t==="dark")document.documentElement.dataset.theme=t})()</script>
+  <script>(function(){var d=document.documentElement,t;try{t=localStorage.getItem("abbydavid-theme")}catch(e){}if(t!=="light"&&t!=="dark")t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";d.setAttribute("data-theme",t);d.style.colorScheme=t})()</script>
   <title>Visit the pets · Abby + David</title>
   <meta name="description" content="A tiny pixel living room starring Jack, Albert, Elda and Svetlana, with the weather outside matching St. Louis.">
   <link rel="canonical" href="https://abbydavid.com/pets/">
