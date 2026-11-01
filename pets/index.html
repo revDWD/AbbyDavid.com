@@ -4,19 +4,24 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Visit the pets · Abby + David</title>
-  <meta name="description" content="A tiny pixel pet toy starring Jack, Albert, Elda and Svetlana.">
+  <meta name="description" content="A tiny pixel living room starring Jack, Albert, Elda and Svetlana, with the weather outside matching St. Louis.">
   <link rel="canonical" href="https://abbydavid.com/pets/">
   <meta name="theme-color" content="#f6f1e7">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Abby + David">
   <meta property="og:title" content="Visit the pets · Abby + David">
-  <meta property="og:description" content="A tiny pixel pet toy starring Jack, Albert, Elda and Svetlana.">
+  <meta property="og:description" content="A tiny pixel living room starring Jack, Albert, Elda and Svetlana, with the weather outside matching St. Louis.">
   <meta property="og:url" content="https://abbydavid.com/pets/">
   <meta property="og:image" content="https://abbydavid.com/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="ABBY + DAVID: Things we're making, doing, and figuring out.">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://abbydavid.com/assets/og-image.png">
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
   <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/pets/pets.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -38,44 +43,74 @@
   <main id="main">
     <div class="wrap pets-page">
       <h1>Visit the pets</h1>
-      <p class="lede mono">Nothing here can go wrong. Take your time.</p>
+      <p class="lede mono">Jack, Albert, Elda and Svetlana at home. Nothing to win; take your time.</p>
 
       <noscript>
-        <p>This little toy needs JavaScript. Meanwhile: Jack (Chihuahua), Albert (cat), Elda (cat) and Svetlana (cat) say hi.</p>
+        <p>This little room needs JavaScript. Meanwhile: Jack (Chihuahua), Albert (cat), Elda (cat) and Svetlana (cat) say hi.</p>
       </noscript>
 
       <div id="app" hidden>
-        <div class="picker" id="picker" role="group" aria-label="Choose a pet"></div>
+        <div class="room-grid">
+          <section class="room" id="room" data-period="day" data-sky="day" data-wx="clear" data-season="summer" data-event="" aria-label="The pets' room">
+            <div class="stage" id="stage" aria-hidden="true">
+              <div class="wall"></div><div class="stripes"></div><div class="floor"></div><div class="planks"></div>
+              <div class="window" id="window">
+                <div class="sky"></div><div class="stars"></div>
+                <span class="sun"></span><span class="moon"></span>
+                <span class="tree"></span><span class="hill"></span>
+                <span class="cloud c-a"></span><span class="cloud c-b"></span>
+                <div class="fog"></div><div class="rain"></div><div class="snow"></div>
+                <span class="bird" id="bird"></span>
+                <span class="bar v"></span><span class="bar h"></span>
+              </div>
+              <div class="frame"></div>
+              <div class="shelf">
+                <span class="board"></span>
+                <span class="plant" id="plant"><i class="leafy"></i><i class="bloom b1"></i><i class="bloom b2"></i><i class="bloom b3"></i><i class="pot"></i></span>
+                <span class="lamp" id="lamp"><i class="shade"></i><i class="stem"></i></span>
+              </div>
+              <div class="lights"></div>
+              <div class="glow"></div>
+              <div class="beam"></div>
+              <div class="rug"></div>
+              <div class="bed" id="bed"></div>
+              <div class="bowls"><span class="bowl water"></span><span class="bowl food" id="food"><i></i></span></div>
+              <span class="leaf l1"></span><span class="leaf l2"></span><span class="leaf l3"></span>
+              <span class="pumpkin"></span>
+              <div class="tint"></div>
+              <span class="ball" id="ball" hidden></span>
+              <div class="fx" id="fx"></div>
+            </div>
+            <p class="stage-foot mono">
+              <span id="wx-line">&nbsp;</span>
+              <span>Weather data by <a href="https://open-meteo.com/">Open-Meteo.com</a> (<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>)</span>
+            </p>
+          </section>
 
-        <section class="room" id="room" data-time="day" aria-label="Pet room">
-          <p class="stamp" id="stamp" hidden>★ Whole crew</p>
-          <div class="room-head mono">
-            <span id="kind"></span>
-            <span class="hearts" id="hearts" role="img" aria-label=""></span>
-          </div>
-          <div class="stage" id="stage">
-            <button type="button" class="window" id="window" aria-label="Look out the window">
-              <span class="sun" aria-hidden="true"></span><span class="bird" id="bird" aria-hidden="true"></span>
-            </button>
-            <button type="button" class="cushion" id="cushion" aria-label="Cushion: a good spot for a nap"></button>
-            <svg class="toy" id="toy" viewBox="0 0 6 6" shape-rendering="crispEdges" hidden aria-hidden="true"><path class="c1" d="M2 0h2v1h-2zM1 1h4v1h-4zM0 2h6v2h-6zM1 4h4v1h-4zM2 5h2v1h-2z"/><path class="c2" d="M1 2h1v1h-1zM2 3h2v1h-2zM4 1h1v1h-1z"/></svg>
-            <svg class="bowl" id="bowl" viewBox="0 0 8 3" shape-rendering="crispEdges" hidden aria-hidden="true"><path class="c1" d="M0 0h8v1h-8z"/><path class="c2" d="M1 1h6v1h-6zM2 2h4v1h-4z"/></svg>
-            <span class="sprite cat" id="sprite" aria-hidden="true"></span>
-            <div class="fx" id="fx" aria-hidden="true"></div>
-          </div>
-          <img class="photo" id="photo" hidden alt="">
-          <p class="say" id="say" role="status" aria-live="polite"></p>
-          <div class="actions">
-            <button type="button" data-act="feed">Feed</button>
-            <button type="button" data-act="pet">Pet</button>
-            <button type="button" data-act="play">Play</button>
-          </div>
-        </section>
+          <section class="panel" aria-label="Choose a pet">
+            <div class="chips" id="chips" role="group" aria-label="Choose a pet"></div>
+            <div class="selected">
+              <div class="who">
+                <h2 id="who">Jack</h2>
+                <span class="mono" id="kind"></span>
+                <span class="hearts" id="hearts" role="img" aria-label=""></span>
+              </div>
+              <div class="actions" id="actions">
+                <button type="button" data-act="pet">Pet</button>
+                <button type="button" data-act="feed">Feed</button>
+                <button type="button" data-act="play">Play</button>
+              </div>
+              <p class="say" id="say" role="status" aria-live="polite"></p>
+              <p class="ambient" id="note"></p>
+              <img class="photo" id="photo" hidden alt="" width="160" height="160">
+            </div>
+          </section>
+        </div>
 
-        <section class="scrapbook" aria-labelledby="scrap-title">
-          <h2 id="scrap-title">Scrapbook <span class="mono" id="scrap-count"></span></h2>
+        <section class="scrapbook" id="scrapbook" aria-labelledby="scrap-title">
+          <h2 id="scrap-title">Scrapbook</h2>
           <ul id="scrap" class="scrap"></ul>
-          <p class="mono scrap-hint">Things the pets find now and then. Nothing is ever missed for good.</p>
+          <p class="mono scrap-hint" id="scrap-hint">Odds and ends the pets turn up will be kept here.</p>
         </section>
 
         <p class="reset"><button type="button" id="reset">Reset saved pet data</button> <span class="mono">Everything is saved only in this browser.</span></p>
@@ -90,6 +125,6 @@
     </div>
   </footer>
 
-  <script src="/pets/pets.js"></script>
+  <script src="/pets/pets.js" defer></script>
 </body>
 </html>
