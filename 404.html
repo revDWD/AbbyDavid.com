@@ -3,23 +3,33 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
+  <script>(function(){var t;try{t=localStorage.getItem("abbydavid-theme")}catch(e){}if(t==="light"||t==="dark")document.documentElement.dataset.theme=t})()</script>
   <title>Page not found · Abby + David</title>
   <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#f4eee1">
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/styles.css">
+  <script src="/theme.js" defer></script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <div class="wrap">
-      <a class="wordmark" href="/">ABBY <span>+</span> DAVID</a>
+      <a class="wordmark" href="/" aria-label="Abby + David, home">Abby<span>+</span>David</a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><button class="theme-toggle" type="button" role="switch" aria-checked="false" hidden><span class="label">Dark mode</span><span class="track" aria-hidden="true"></span></button></li>
+        </ul>
+      </nav>
     </div>
   </header>
   <main id="main">
     <div class="wrap">
-      <section class="hero">
-        <h1>ABBY <span>+</span> DAVID</h1>
-        <p class="tagline">Nothing here. Yet.</p>
-        <p class="intro"><a href="/">Back to the homepage</a>.</p>
+      <section class="page-head" style="padding-top:clamp(3rem,8vw,6rem)">
+        <h1 class="page-title">Nothing here. Yet.</h1>
+        <p class="dek">Either this page moved or it was never a page. Possibly a typo.</p>
+        <a class="back" href="/">← Back to the homepage</a>
       </section>
     </div>
   </main>

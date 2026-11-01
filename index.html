@@ -3,12 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
+  <script>(function(){var t;try{t=localStorage.getItem("abbydavid-theme")}catch(e){}if(t==="light"||t==="dark")document.documentElement.dataset.theme=t})()</script>
 
   <!-- Page metadata. For a new page, change title, description, canonical, and og:* below. -->
   <title>Abby + David</title>
-  <meta name="description" content="Things we're making, doing, and figuring out. Our little corner of the internet: projects, experiments, useful things, and whatever else we get interested in.">
+  <meta name="description" content="Things we're making, doing, and figuring out. Projects, experiments, useful things, and whatever else we get curious about, from St. Louis.">
   <link rel="canonical" href="https://abbydavid.com/">
-  <meta name="theme-color" content="#f6f1e7">
+  <meta name="theme-color" content="#f4eee1">
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Abby + David">
@@ -25,19 +27,22 @@
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 
+  <link rel="preload" href="/assets/fonts/newsreader-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/styles.css">
+  <script src="/theme.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header">
     <div class="wrap">
+      <a class="wordmark" href="/" aria-label="Abby + David, home">Abby<span>+</span>David</a>
       <nav class="site-nav" aria-label="Main">
         <ul>
           <li><a href="#projects">Projects</a></li>
           <li><a href="/pets/">Pets</a></li>
           <li><a href="#about">About</a></li>
-          <li><a class="ext" href="https://github.com/revDWD">GitHub ↗</a></li>
+          <li><button class="theme-toggle" type="button" role="switch" aria-checked="false" hidden><span class="label">Dark mode</span><span class="track" aria-hidden="true"></span></button></li>
         </ul>
       </nav>
     </div>
@@ -47,25 +52,24 @@
     <div class="wrap">
 
       <section class="hero" aria-labelledby="hero-title">
-        <h1 id="hero-title">ABBY <span>+</span> DAVID</h1>
+        <h1 id="hero-title">Abby<span class="plus">+</span>David</h1>
         <p class="tagline">Things we're making, doing, and <em>figuring out.</em></p>
-        <p class="intro">Our little corner of the internet. Projects, experiments, useful things, and whatever else we get interested in.</p>
+        <p class="intro">Projects, experiments, useful things, and whatever else we get curious about. There are also pets.</p>
+        <p class="locality mono">Collected in St. Louis, Missouri · 38.63° N, 90.20° W</p>
       </section>
-    </div>
-    <div class="tape" aria-hidden="true"></div>
 
-    <div class="wrap">
-
-      <!-- PROJECTS: a curated selection. Keep this to the favorites/current (2–4 big blocks);
+      <!-- SPOTLIGHT PROJECTS: a curated selection, not the whole collection. Keep to 2–4 big blocks;
            everything else lives in /projects/. To feature a project, copy an <article class="work">.
-           Add class "flip" to put the screenshot on the left. Delete the <figure> if there's no image.
-           Types: TOOL, EXPERIMENT, PROJECT, GUIDE, RECIPE, BUILD, TRIP.
+           Add class "flip" to put the figure on the left. Delete the <figure> if there's no image.
+           Number figures in order (Fig. 1, 2, ...). Types: TOOL, EXPERIMENT, PROJECT, GUIDE, RECIPE, BUILD, TRIP.
            Status: class "status" for live/done, "status concept" for ideas. -->
       <section id="projects" class="section" aria-labelledby="projects-title">
         <div class="section-head">
-          <h2 id="projects-title">Things we've made</h2>
-          <a href="/projects/">All projects →</a>
+          <h2 id="projects-title">Spotlight projects</h2>
+          <a class="more" href="/projects/">The full archive →</a>
         </div>
+        <p class="dek">A few things worth poking around in.</p>
+        <p class="mono dek-note">Selected, not everything. The rest are in the archive.</p>
 
         <article class="work">
           <div>
@@ -73,10 +77,11 @@
             <h3><a class="stretch" href="https://revdwd.github.io/ecotox-id/">Ecotox ID</a></h3>
             <p class="desc">A free, offline-friendly quiz with a retro battle-screen look. Identify real organisms from iNaturalist photos and fill in your Field guide.</p>
             <p class="fine">Crop pests, pollinators, natural enemies and ecotoxicology test species.</p>
-            <span class="go mono" aria-hidden="true">Play ↗</span>
+            <span class="go" aria-hidden="true">Play <b>↗</b></span>
           </div>
-          <figure class="shot pixel">
-            <img src="/assets/ecotox-id.webp" width="636" height="425" loading="lazy" alt="Ecotox ID title screen: a pixel-art logo over a grassy field with a grasshopper silhouette.">
+          <figure class="fig pixel">
+            <div class="plate"><img src="/assets/ecotox-id.webp" width="636" height="425" loading="lazy" alt="Ecotox ID title screen: a pixel-art logo over a grassy field with a grasshopper silhouette."></div>
+            <figcaption><span class="num mono">Fig. 1</span><span class="mono">Ecotox ID, title screen.</span></figcaption>
           </figure>
         </article>
 
@@ -86,24 +91,14 @@
             <h3><a class="stretch" href="https://revdwd.github.io/oregon-trail-dle/">Oregon Trail DLE</a></h3>
             <p class="desc">A fitness tracker with a game layer. Log the miles you walk, run, or ride and watch a community wagon head west along the 2,040-mile trail.</p>
             <p class="fine">Independence, Missouri to Oregon City, Oregon. Every 5 miles in your private journal unlocks a hunting minigame.</p>
-            <span class="go mono" aria-hidden="true">Open ↗</span>
+            <span class="go" aria-hidden="true">Open <b>↗</b></span>
           </div>
-          <figure class="shot">
-            <img src="/assets/oregon-trail-dle.webp" width="990" height="568" loading="lazy" alt="Illustrated map of the United States with the Oregon Trail route marked from Missouri to Oregon and a covered wagon near the start.">
+          <figure class="fig">
+            <div class="plate"><img src="/assets/oregon-trail-dle.webp" width="990" height="568" loading="lazy" alt="Illustrated map of the United States with the Oregon Trail route marked from Missouri to Oregon and a covered wagon near the start."></div>
+            <figcaption><span class="num mono">Fig. 2</span><span class="mono">Oregon Trail DLE, the route west.</span></figcaption>
           </figure>
         </article>
 
-      </section>
-
-      <section id="crew" class="section" aria-labelledby="crew-title">
-        <div class="section-head"><h2 id="crew-title">Meet the crew</h2></div>
-        <ul class="crew">
-          <li><span class="px jack" data-pose="stand" aria-hidden="true"></span><span><strong>Jack</strong><span class="mono">Chihuahua</span></span></li>
-          <li><span class="px albert" data-pose="stand" aria-hidden="true"></span><span><strong>Albert</strong><span class="mono">Cat</span></span></li>
-          <li><span class="px elda" data-pose="stand" aria-hidden="true"></span><span><strong>Elda</strong><span class="mono">Cat</span></span></li>
-          <li><span class="px svetlana" data-pose="stand" aria-hidden="true"></span><span><strong>Svetlana</strong><span class="mono">Cat</span></span></li>
-        </ul>
-        <p class="crew-link"><a href="/pets/">Visit the pets →</a></p>
       </section>
 
       <!-- NOTES: not shown until there's a real note. When there is one, add this section
@@ -121,7 +116,76 @@
 
       <section id="about" class="section about" aria-labelledby="about-title">
         <div class="section-head"><h2 id="about-title">About</h2></div>
-        <p>We're Abby and David. This is where we keep the things we make, learn, explore, and want to remember.</p>
+        <p class="lead">We're Abby and David. This is where we keep the things we make, learn, fix and want to remember.</p>
+
+        <div class="profile david">
+          <h3>David</h3>
+          <div class="profile-body">
+            <div>
+              <p>David is a research entomologist by day and a habitual tinkerer the rest of the time. He likes insects, useful little tools, overthinking home projects, and figuring out how things work.</p>
+              <p>Evenings and weekends tend to involve wiring something, planning backup power and solar, building with wood, sorting out drainage in the yard, or cooking something more complicated than the situation called for. A camera usually comes along, and so do the trips it ends up on. Now and then there's a weird little internet experiment, and those end up here.</p>
+              <p class="aside-note">This is a personal site. It isn't affiliated with Bayer and doesn't speak for it.</p>
+            </div>
+            <figure class="fig specimen">
+              <div class="plate">
+                <svg viewBox="0 0 250 240" role="img" aria-label="Line drawing of a beetle seen from above, with the antenna and wing cover labelled.">
+                  <g transform="translate(100 0)" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
+                    <g id="beetle-half">
+                      <path d="M12 52 L38 43 L52 60 L58 70"/>
+                      <path d="M16 78 L50 79 L64 102 L70 113"/>
+                      <path d="M17 108 L46 124 L50 156 L52 168"/>
+                      <path d="M7 27 C 22 15, 34 12, 52 5" />
+                      <path d="M7 27 C 22 15, 34 12, 52 5" stroke-width="4.5" stroke-dasharray="0.7 5.2" opacity="0.8"/>
+                      <path d="M-6 41 Q-4 49 1 45"/>
+                      <ellipse cx="12" cy="26" rx="3" ry="4.5"/>
+                    </g>
+                    <use href="#beetle-half" transform="scale(-1 1)"/>
+                    <g fill="var(--paper-deep)">
+                      <ellipse cx="0" cy="30" rx="17" ry="13"/>
+                      <path d="M-25 48 Q0 40 25 48 L29 78 Q0 86 -29 78 Z"/>
+                      <path d="M-29 82 Q0 90 29 82 C 42 130 36 190 0 224 C -36 190 -42 130 -29 82 Z"/>
+                    </g>
+                    <path d="M-6 41 Q-4 49 1 45 M6 41 Q4 49 -1 45" />
+                    <ellipse cx="11" cy="26" rx="3" ry="4.5"/><ellipse cx="-11" cy="26" rx="3" ry="4.5"/>
+                    <path d="M0 86 L0 222"/>
+                    <path d="M9 87 C 13 130 10 180 2 216 M-9 87 C -13 130 -10 180 -2 216"/>
+                    <path d="M18 86 C 26 130 22 180 8 210 M-18 86 C -26 130 -22 180 -8 210"/>
+                    <path d="M26 84 C 36 130 30 170 14 200 M-26 84 C -36 130 -30 170 -14 200"/>
+                    <path class="callout" d="M52 5 L84 5"/>
+                    <path class="callout" d="M32 150 L84 150"/>
+                  </g>
+                  <text x="190" y="8">antenna</text>
+                  <text x="190" y="153">elytron</text>
+                </svg>
+              </div>
+              <figcaption><span class="num mono">Fig. 3</span><span class="mono">A generic beetle, drawn for this page. Not a particular species, and not anyone's research.</span></figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <!-- ABBY'S PROFILE: hers to write. When she's ready, put her paragraphs above .blank (add a
+             figure with .profile-body like David's if she wants one), then delete .blank and .waiting. -->
+        <div class="profile abby">
+          <h3>Abby</h3>
+          <div class="profile-body">
+            <div>
+              <p class="waiting">Abby is deciding what she'd like to say here, and it's her call. This space is hers whenever she's ready.</p>
+              <div class="blank" aria-hidden="true"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="crew" class="section" aria-labelledby="crew-title">
+        <div class="section-head"><h2 id="crew-title">The pets</h2></div>
+        <p class="dek">They have a room of their own, and it's open for visits.</p>
+        <ul class="crew">
+          <li><span class="px jack" data-pose="stand" aria-hidden="true"></span><span><strong>Jack</strong><span class="mono">Chihuahua</span></span></li>
+          <li><span class="px albert" data-pose="stand" aria-hidden="true"></span><span><strong>Albert</strong><span class="mono">Cat</span></span></li>
+          <li><span class="px elda" data-pose="stand" aria-hidden="true"></span><span><strong>Elda</strong><span class="mono">Cat</span></span></li>
+          <li><span class="px svetlana" data-pose="stand" aria-hidden="true"></span><span><strong>Svetlana</strong><span class="mono">Cat</span></span></li>
+        </ul>
+        <p class="crew-link"><a href="/pets/">Visit the room →</a></p>
       </section>
 
     </div>
@@ -130,7 +194,7 @@
   <footer class="site-footer mono">
     <div class="wrap">
       <p>Abby + David · St. Louis, Missouri</p>
-      <p>© 2026 · Updated Nov 2026 · <a href="https://github.com/revDWD">GitHub</a></p>
+      <p>© 2026 · Updated Nov 2026</p>
     </div>
   </footer>
 </body>

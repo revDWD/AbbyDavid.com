@@ -3,10 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
+  <script>(function(){var t;try{t=localStorage.getItem("abbydavid-theme")}catch(e){}if(t==="light"||t==="dark")document.documentElement.dataset.theme=t})()</script>
   <title>Visit the pets · Abby + David</title>
   <meta name="description" content="A tiny pixel living room starring Jack, Albert, Elda and Svetlana, with the weather outside matching St. Louis.">
   <link rel="canonical" href="https://abbydavid.com/pets/">
-  <meta name="theme-color" content="#f6f1e7">
+  <meta name="theme-color" content="#f4eee1">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Abby + David">
   <meta property="og:title" content="Visit the pets · Abby + David">
@@ -21,6 +23,7 @@
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
   <link rel="stylesheet" href="/styles.css">
+  <script src="/theme.js" defer></script>
   <link rel="stylesheet" href="/pets/pets.css">
 </head>
 <body>
@@ -28,13 +31,13 @@
 
   <header class="site-header">
     <div class="wrap">
-      <a class="wordmark" href="/" aria-label="Abby + David, home">ABBY <span>+</span> DAVID</a>
+      <a class="wordmark" href="/" aria-label="Abby + David, home">Abby<span>+</span>David</a>
       <nav class="site-nav" aria-label="Main">
         <ul>
           <li><a href="/#projects">Projects</a></li>
           <li><a href="/pets/" aria-current="page">Pets</a></li>
           <li><a href="/#about">About</a></li>
-          <li><a class="ext" href="https://github.com/revDWD">GitHub ↗</a></li>
+          <li><button class="theme-toggle" type="button" role="switch" aria-checked="false" hidden><span class="label">Dark mode</span><span class="track" aria-hidden="true"></span></button></li>
         </ul>
       </nav>
     </div>
@@ -43,7 +46,7 @@
   <main id="main">
     <div class="wrap pets-page">
       <h1>Visit the pets</h1>
-      <p class="lede mono">Jack, Albert, Elda and Svetlana at home. Nothing to win; take your time.</p>
+      <p class="lede">Jack, Albert, Elda and Svetlana at home. Nothing to win; take your time.</p>
 
       <noscript>
         <p>This little room needs JavaScript. Meanwhile: Jack (Chihuahua), Albert (cat), Elda (cat) and Svetlana (cat) say hi.</p>
@@ -53,7 +56,7 @@
         <div class="room-grid">
           <section class="room" id="room" data-period="day" data-sky="day" data-wx="clear" data-season="summer" data-event="" aria-label="The pets' room">
             <div class="stage" id="stage" aria-hidden="true">
-              <div class="wall"></div><div class="stripes"></div><div class="floor"></div><div class="planks"></div>
+              <div class="wall"></div><div class="stripes"></div><div class="floor"></div><div class="planks"></div><div class="baseboard"></div>
               <div class="window" id="window">
                 <div class="sky"></div><div class="stars"></div>
                 <span class="sun"></span><span class="moon"></span>
@@ -63,16 +66,18 @@
                 <span class="bird" id="bird"></span>
                 <span class="bar v"></span><span class="bar h"></span>
               </div>
+              <div class="curtain l"></div><div class="curtain r"></div>
               <div class="frame"></div>
               <div class="shelf">
                 <span class="board"></span>
                 <span class="plant" id="plant"><i class="leafy"></i><i class="bloom b1"></i><i class="bloom b2"></i><i class="bloom b3"></i><i class="pot"></i></span>
                 <span class="lamp" id="lamp"><i class="shade"></i><i class="stem"></i></span>
+                <span class="wagon" aria-hidden="true"><i class="cover"></i><i class="body"></i><i class="wheel"></i><i class="wheel w2"></i></span>
               </div>
               <div class="lights"></div>
               <div class="glow"></div>
               <div class="beam"></div>
-              <div class="rug"></div>
+              <div class="rug"></div><div class="rug-shade"></div>
               <div class="bed" id="bed"></div>
               <div class="bowls"><span class="bowl water"></span><span class="bowl food" id="food"><i></i></span></div>
               <span class="leaf l1"></span><span class="leaf l2"></span><span class="leaf l3"></span>
@@ -82,7 +87,7 @@
               <div class="fx" id="fx"></div>
             </div>
             <p class="stage-foot mono">
-              <span id="wx-line">&nbsp;</span>
+              <span><b class="num">Fig. 1</b> The living room, right now. <span id="wx-line">&nbsp;</span></span>
               <span>Weather data by <a href="https://open-meteo.com/">Open-Meteo.com</a> (<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>)</span>
             </p>
           </section>

@@ -3,10 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
+  <script>(function(){var t;try{t=localStorage.getItem("abbydavid-theme")}catch(e){}if(t==="light"||t==="dark")document.documentElement.dataset.theme=t})()</script>
   <title>Projects · Abby + David</title>
   <meta name="description" content="Everything we've made so far: experiments, tools, and projects.">
   <link rel="canonical" href="https://abbydavid.com/projects/">
-  <meta name="theme-color" content="#f6f1e7">
+  <meta name="theme-color" content="#f4eee1">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Abby + David">
   <meta property="og:title" content="Projects · Abby + David">
@@ -21,19 +23,20 @@
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
   <link rel="stylesheet" href="/styles.css">
+  <script src="/theme.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header">
     <div class="wrap">
-      <a class="wordmark" href="/" aria-label="Abby + David, home">ABBY <span>+</span> DAVID</a>
+      <a class="wordmark" href="/" aria-label="Abby + David, home">Abby<span>+</span>David</a>
       <nav class="site-nav" aria-label="Main">
         <ul>
           <li><a href="/projects/" aria-current="page">Projects</a></li>
           <li><a href="/pets/">Pets</a></li>
           <li><a href="/#about">About</a></li>
-          <li><a class="ext" href="https://github.com/revDWD">GitHub ↗</a></li>
+          <li><button class="theme-toggle" type="button" role="switch" aria-checked="false" hidden><span class="label">Dark mode</span><span class="track" aria-hidden="true"></span></button></li>
         </ul>
       </nav>
     </div>
@@ -41,11 +44,13 @@
 
   <main id="main">
     <div class="wrap">
-      <section class="section" aria-labelledby="all-title" style="padding-top:4rem">
-        <div class="section-head">
-          <h2 id="all-title">All projects</h2>
-          <a href="/">← Home</a>
-        </div>
+      <section class="page-head" aria-labelledby="all-title">
+        <h1 class="page-title" id="all-title">Projects</h1>
+        <p class="dek">Everything we've made so far, newest first. The ones on the homepage are just the spotlight.</p>
+        <a class="back" href="/">← Home</a>
+      </section>
+
+      <section aria-label="All projects">
 
         <!-- The full archive: every project, newest first. Same <li> format as the homepage. -->
         <ol class="entries">
@@ -55,7 +60,7 @@
               <h3><a class="stretch" href="https://revdwd.github.io/ecotox-id/">Ecotox ID</a></h3>
               <p>A free, offline-friendly quiz with a retro battle-screen look: identify real organisms from iNaturalist photos.</p>
             </div>
-            <span class="go" aria-hidden="true">↗</span>
+            <span class="go" aria-hidden="true"><b>↗</b></span>
           </li>
           <li class="entry">
             <p class="meta mono">No. 03 · Experiment<br>Oct 2026 · <span class="status">Live</span></p>
@@ -63,7 +68,7 @@
               <h3><a class="stretch" href="https://revdwd.github.io/spirit-bomb-donations/">Spirit Bomb Donations</a></h3>
               <p>A humorous parody site for donating tokens to vibe coding.</p>
             </div>
-            <span class="go" aria-hidden="true">↗</span>
+            <span class="go" aria-hidden="true"><b>↗</b></span>
           </li>
           <li class="entry">
             <p class="meta mono">No. 02 · Project<br>Oct 2026 · <span class="status concept">Concept</span></p>
@@ -71,7 +76,7 @@
               <h3><a class="stretch" href="https://revdwd.github.io/public-move/">Public Move</a></h3>
               <p>A concept app for public transportation built around self-driving vehicles, as a public right.</p>
             </div>
-            <span class="go" aria-hidden="true">↗</span>
+            <span class="go" aria-hidden="true"><b>↗</b></span>
           </li>
           <li class="entry">
             <p class="meta mono">No. 01 · Experiment<br>Oct 2026 · <span class="status">Live</span></p>
@@ -79,7 +84,7 @@
               <h3><a class="stretch" href="https://revdwd.github.io/oregon-trail-dle/">Oregon Trail DLE</a></h3>
               <p>A fitness tracker with a game layer: log miles and move a community wagon along the 2,040-mile Oregon Trail.</p>
             </div>
-            <span class="go" aria-hidden="true">↗</span>
+            <span class="go" aria-hidden="true"><b>↗</b></span>
           </li>
         </ol>
       </section>
@@ -89,7 +94,7 @@
   <footer class="site-footer mono">
     <div class="wrap">
       <p>Abby + David · St. Louis, Missouri</p>
-      <p>© 2026 · <a href="https://github.com/revDWD">GitHub</a></p>
+      <p>© 2026</p>
     </div>
   </footer>
 </body>
