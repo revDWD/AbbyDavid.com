@@ -6,9 +6,9 @@
 
   <!-- Page metadata. For a new page, change title, description, canonical, and og:* below. -->
   <title>Abby + David</title>
-  <meta name="description" content="Things we're making, doing, and figuring out. The personal site of Abby + David: projects, experiments, recipes, trips, and useful things.">
+  <meta name="description" content="Things we're making, doing, and figuring out. Our little corner of the internet: projects, experiments, useful things, and whatever else we get interested in.">
   <link rel="canonical" href="https://abbydavid.com/">
-  <meta name="theme-color" content="#f7f3ec">
+  <meta name="theme-color" content="#f6f1e7">
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Abby + David">
@@ -18,7 +18,6 @@
   <meta property="og:image" content="https://abbydavid.com/assets/og-image.png"> <!-- placeholder: add a 1200x630 image at assets/og-image.png -->
   <meta name="twitter:card" content="summary_large_image">
 
-  <!-- Favicons (placeholders: replace the files in /assets) -->
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 
@@ -29,12 +28,11 @@
 
   <header class="site-header">
     <div class="wrap">
-      <a class="wordmark" href="/">ABBY <span>+</span> DAVID</a>
       <nav class="site-nav" aria-label="Main">
         <ul>
           <li><a href="#projects">Projects</a></li>
-          <li><a href="#notes">Notes</a></li>
           <li><a href="#about">About</a></li>
+          <li><a class="ext" href="https://github.com/revDWD">GitHub ↗</a></li>
         </ul>
       </nav>
     </div>
@@ -44,82 +42,90 @@
     <div class="wrap">
 
       <section class="hero" aria-labelledby="hero-title">
-        <h1 id="hero-title">Abby <span>+</span> David</h1>
+        <h1 id="hero-title">ABBY <span>+</span> DAVID</h1>
         <p class="tagline">Things we're making, doing, and figuring out.</p>
-        <p class="intro">This is our little corner of the internet: projects, experiments, recipes, trips, useful things, and whatever else we get interested in.</p>
+        <p class="intro">Our little corner of the internet. Projects, experiments, useful things, and whatever else we get interested in.</p>
       </section>
+    </div>
+    <div class="tape" aria-hidden="true"></div>
+
+    <div class="wrap">
 
       <!-- PROJECTS
-           To replace a placeholder with a real project: change the label, title, text,
-           and the href. Labels: PROJECT, TOOL, RECIPE, GUIDE, TRAVEL, EXPERIMENT. -->
-      <section id="projects" aria-labelledby="projects-title">
+           Keep the homepage to a curated handful (about 5–7): one featured project,
+           the rest in the list. The complete archive lives at /projects/.
+           To add a project, copy an <li class="entry"> block. Number ("No.") is just
+           the order they were made. Types: TOOL, EXPERIMENT, PROJECT, GUIDE, RECIPE, BUILD, TRIP.
+           Status: use class "status" for live/done, "status concept" for ideas. -->
+      <section id="projects" class="section" aria-labelledby="projects-title">
         <div class="section-head">
-          <h2 id="projects-title">Things We're Working On</h2>
+          <h2 id="projects-title">Things we've made</h2>
+          <a href="/projects/">All projects →</a>
         </div>
-        <ul class="cards">
-          <li class="card">
-            <span class="label">Experiment</span>
-            <h3><a href="/projects/#digital-experiments">Digital Experiments</a></h3>
-            <p>Small tools, calculators, and things built just because they seemed useful.</p>
-            <span class="more" aria-hidden="true">Soon →</span>
+
+        <article class="featured">
+          <p class="meta mono">No. 04 · Experiment · Oct 2026 · <span class="status">Live</span></p>
+          <h3><a class="stretch" href="https://revdwd.github.io/ecotox-id/">Ecotox ID</a></h3>
+          <p class="desc">A retro battle-screen game for identifying crop pests, pollinators, natural enemies and ecotoxicology test species.</p>
+          <span class="go mono" aria-hidden="true">Open ↗</span>
+          <!-- Optional screenshot: <figure class="shot"><img src="/assets/ecotox-id.png" alt="Describe the screenshot" width="1200" height="700" loading="lazy"></figure> -->
+        </article>
+
+        <ol class="entries">
+          <li class="entry">
+            <p class="meta mono">No. 03 · Experiment<br>Oct 2026 · <span class="status">Live</span></p>
+            <div>
+              <h3><a class="stretch" href="https://revdwd.github.io/spirit-bomb-donations/">Spirit Bomb Donations</a></h3>
+              <p>A humorous parody site for donating tokens to vibe coding.</p>
+            </div>
+            <span class="go" aria-hidden="true">↗</span>
           </li>
-          <li class="card">
-            <span class="label">Project</span>
-            <h3><a href="/projects/#home-diy">Home + DIY</a></h3>
-            <p>Projects, fixes, experiments, and lessons learned around the house.</p>
-            <span class="more" aria-hidden="true">Soon →</span>
+          <li class="entry">
+            <p class="meta mono">No. 02 · Project<br>Oct 2026 · <span class="status concept">Concept</span></p>
+            <div>
+              <h3><a class="stretch" href="https://revdwd.github.io/public-move/">Public Move</a></h3>
+              <p>A concept app for public transportation built around self-driving vehicles, as a public right.</p>
+            </div>
+            <span class="go" aria-hidden="true">↗</span>
           </li>
-          <li class="card">
-            <span class="label">Recipe</span>
-            <h3><a href="/projects/#food">Food</a></h3>
-            <p>Recipes worth making again.</p>
-            <span class="more" aria-hidden="true">Soon →</span>
+          <li class="entry">
+            <p class="meta mono">No. 01 · Experiment<br>Oct 2026 · <span class="status">Live</span></p>
+            <div>
+              <h3><a class="stretch" href="https://revdwd.github.io/oregon-trail-dle/">Oregon Trail-dle</a></h3>
+              <p>A fitness tracker with an Oregon Trail game layer.</p>
+            </div>
+            <span class="go" aria-hidden="true">↗</span>
           </li>
-          <li class="card">
-            <span class="label">Travel</span>
-            <h3><a href="/projects/#adventures">Adventures</a></h3>
-            <p>Places we've been and things worth remembering.</p>
-            <span class="more" aria-hidden="true">Soon →</span>
-          </li>
-        </ul>
+        </ol>
       </section>
 
-      <!-- NOTES
-           When you have a post, delete the .empty paragraph and add an item like this
-           inside <ul class="notes">:
-
-           <li class="note">
-             <time datetime="2026-01-15">Jan 15, 2026</time>
-             <div>
-               <h3><a href="/notes/post-name/">Post title</a></h3>
-               <span class="label">Guide</span>
-               <p>One or two sentences about the post.</p>
-             </div>
-           </li>
-      -->
-      <section id="notes" aria-labelledby="notes-title">
-        <div class="section-head">
-          <h2 id="notes-title">Notes From Along the Way</h2>
-          <p>Short writeups and project notes.</p>
-        </div>
-        <p class="empty">Nothing here yet. Coming soon.</p>
+      <!-- NOTES: short writeups, "things we learned". Intentionally quiet.
+           When there are posts, replace the paragraph with a list like:
+           <ul class="notes">
+             <li class="note">
+               <p class="meta mono"><time datetime="2026-12-01">Dec 2026</time> · Guide</p>
+               <div><h3><a href="/notes/post-name/">Post title</a></h3><p>One-sentence description.</p></div>
+             </li>
+           </ul>
+           and add a "Notes" link to the nav at the top. -->
+      <section id="notes" class="section" aria-labelledby="notes-title">
+        <div class="section-head"><h2 id="notes-title">Notes</h2></div>
+        <p class="notes-quiet">Short writeups of things we figure out will end up here. Nothing yet.</p>
       </section>
 
-      <section id="about" class="about" aria-labelledby="about-title">
-        <div class="section-head">
-          <h2 id="about-title">About</h2>
-        </div>
-        <p class="statement">We're Abby and David. This is where we keep the things we make, learn, explore, and want to remember.</p>
-        <!-- Later: link to a fuller page, e.g. <a href="/about/">More about us →</a> -->
+      <section id="about" class="section about" aria-labelledby="about-title">
+        <div class="section-head"><h2 id="about-title">About</h2></div>
+        <p>We're Abby and David. This is where we keep the things we make, learn, explore, and want to remember.</p>
+        <!-- Later: link to a fuller page, e.g. <a href="/about/">More →</a> -->
       </section>
 
     </div>
   </main>
 
-  <footer class="site-footer">
+  <footer class="site-footer mono">
     <div class="wrap">
-      <p>Abby + David · abbydavid.com</p>
-      <p><a href="https://github.com/revDWD">GitHub</a> </p>
+      <p>Abby + David · St. Louis, Missouri</p>
+      <p>© 2026 · Updated Nov 2026 · <a href="https://github.com/revDWD">GitHub</a></p>
     </div>
   </footer>
 </body>
