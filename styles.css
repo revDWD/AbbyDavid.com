@@ -55,7 +55,7 @@
 
 /* Dark: the same paper at night. Warm ink instead of black, soft off-white text, muted teal. */
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
+  :root:not([data-theme]) {
     color-scheme: dark;
     --paper: #181512;
     --paper-deep: #1f1b17;
@@ -171,7 +171,7 @@ a:hover, a:focus-visible { color: var(--accent); background-size: 100% 1px, 100%
 /* Theme toggle: a real switch button. Label stays "Dark mode"; its state is announced via aria-checked. */
 .theme-toggle {
   display: inline-flex; align-items: center; gap: 0.55rem;
-  min-height: 2.75rem; padding: 0 0.5rem; margin-left: 0.25rem;
+  min-height: 2.75rem; min-width: 2.75rem; padding: 0 0.5rem; margin-left: 0.25rem;
   font: inherit; font-size: 0.95rem; color: var(--ink); background: none; border: 0; cursor: pointer;
   touch-action: manipulation; -webkit-tap-highlight-color: transparent;
 }
@@ -185,7 +185,19 @@ a:hover, a:focus-visible { color: var(--accent); background-size: 100% 1px, 100%
 }
 .theme-toggle[aria-checked="true"] .track { background: var(--accent-soft); }
 .theme-toggle[aria-checked="true"] .track::after { transform: translateX(1.1rem); background: var(--ink); }
+.theme-toggle .state { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); min-width: 1.6em; }
 .theme-toggle:hover .label { color: var(--accent); }
+@media (max-width: 30rem) {
+  .site-nav { margin-right: 0; }
+  .site-nav li > a { padding-inline: 0.4rem; font-size: 0.95rem; }
+  .theme-toggle { gap: 0.35rem; padding: 0 0.25rem; margin-left: 0; font-size: 0.9rem; }
+  .theme-toggle .track { width: 2.2rem; }
+  .theme-toggle[aria-checked="true"] .track::after { transform: translateX(0.8rem); }
+}
+/* a short, quiet colour change when the theme flips; skipped for reduced motion */
+@media (prefers-reduced-motion: no-preference) {
+  body, .site-header, .site-footer { transition: background-color 0.3s ease, color 0.3s ease; }
+}
 
 /* ---------- Hero ---------- */
 .hero { padding: clamp(3rem, 8vw, 6rem) 0 clamp(2.5rem, 6vw, 4rem); }
@@ -226,12 +238,11 @@ a:hover, a:focus-visible { color: var(--accent); background-size: 100% 1px, 100%
 .work {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: clamp(1.5rem, 4vw, 3.5rem);
   align-items: center;
   padding: clamp(1.75rem, 4vw, 3rem) 0;
 }
-.work.flip { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); }
 .work + .work { border-top: 1px solid var(--rule); }
 .work.flip .fig { order: -1; }
 .work .meta { margin: 0 0 0.9rem; }
@@ -244,13 +255,12 @@ a:hover, a:focus-visible { color: var(--accent); background-size: 100% 1px, 100%
 
 /* Figures: a hairline frame and a specimen-style caption */
 .fig { margin: 0; }
-.fig .plate { border: 1px solid var(--edge); background: var(--paper-deep); transition: border-color 0.25s ease; }
+.fig .plate { border: 1px solid var(--edge); background: var(--paper-deep); line-height: 0; transition: border-color 0.25s ease; }
 .fig img { display: block; width: 100%; height: auto; }
 .fig.pixel img { image-rendering: pixelated; }
 .fig figcaption { margin-top: 0.6rem; display: flex; gap: 0.75rem; font-size: 0.8rem; line-height: 1.45; }
-.fig .num { flex: none; color: var(--coral); font-family: var(--mono); transition: letter-spacing 0.25s ease; }
+.fig .num { flex: none; color: var(--coral); font-family: var(--mono); }
 .work:hover .plate, .work:focus-within .plate { border-color: var(--accent); }
-.work:hover .num, .work:focus-within .num { letter-spacing: 0.06em; }
 
 /* A fine accent rule slides across the top of a project when you point at it */
 .work::before { content: ""; position: absolute; left: 0; right: 0; top: -1px; height: 2px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.45s ease; }
@@ -329,32 +339,21 @@ a:hover, a:focus-visible { color: var(--accent); background-size: 100% 1px, 100%
 /* ---------- About ---------- */
 .about .lead { font-family: var(--serif); font-size: clamp(1.45rem, 1.1rem + 1.5vw, 2rem); line-height: 1.3; max-width: 36rem; margin: 1.25rem 0 2.5rem; text-wrap: pretty; }
 
-/* Each person gets a marginal name and a column of text; David's has a figure, Abby's is left open. */
+/* Each person gets a marginal name and a column of text; Abby's is left open. */
 .profile { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); gap: 0.5rem 1.5rem; padding: 1.75rem 0; border-top: 1px solid var(--rule); }
 .profile h3 { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 1.6rem; line-height: 1.1; margin: 0; }
-.profile-body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(12rem, 16.5rem); gap: 1.5rem clamp(1.5rem, 4vw, 3rem); align-items: start; }
-.profile p { margin: 0 0 1em; max-width: 34rem; text-wrap: pretty; }
+.profile p { margin: 0 0 1em; max-width: 38rem; text-wrap: pretty; }
+.profile p.big { font-family: var(--serif); font-size: clamp(1.25rem, 1.1rem + 0.6vw, 1.45rem); line-height: 1.4; }
 .profile p:last-child { margin-bottom: 0; }
 
-.profile.abby .profile-body { display: block; }
 /* Ruled lines, waiting for her words. Add her paragraphs above .blank, then delete .blank. */
 .blank { height: 6.5rem; margin-top: 1.25rem; max-width: 34rem; background: repeating-linear-gradient(transparent 0 1.75rem, var(--rule) 1.75rem calc(1.75rem + 1px)); }
 .abby .waiting { font-family: var(--serif); font-style: italic; font-size: 1.2rem; color: var(--muted); }
 
 .aside-note { border-top: 1px solid var(--rule); padding-top: 1rem; max-width: 34rem; color: var(--muted); font-size: 0.9rem; margin: 0; }
 
-.specimen svg { display: block; width: 100%; height: auto; color: var(--ink); }
-.specimen .plate { padding: 0.75rem 0.5rem 0.25rem; }
-.specimen svg text { font-family: var(--mono); font-size: 9px; fill: var(--muted); stroke: none; }
-.specimen .callout { stroke: var(--coral); stroke-width: 0.7; fill: none; }
-.specimen figcaption { transition: color 0.2s; }
-.specimen:hover .num { letter-spacing: 0.06em; }
-.specimen:hover .callout { stroke-width: 1.2; }
-
 @media (max-width: 56rem) {
   .profile { grid-template-columns: 1fr; padding: 1.5rem 0; }
-  .profile-body { grid-template-columns: 1fr; }
-  .specimen { width: min(100%, 22rem); }
 }
 
 /* ---------- Pages with a plain title (projects, 404) ---------- */
