@@ -2,15 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Visit the pets · Abby + David</title>
-  <meta name="description" content="A tiny pixel pet toy starring Jack, Albert, Elda and Shetland.">
+  <meta name="description" content="A tiny pixel pet toy starring Jack, Albert, Elda and Svetlana.">
   <link rel="canonical" href="https://abbydavid.com/pets/">
   <meta name="theme-color" content="#f6f1e7">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Abby + David">
   <meta property="og:title" content="Visit the pets · Abby + David">
-  <meta property="og:description" content="A tiny pixel pet toy starring Jack, Albert, Elda and Shetland.">
+  <meta property="og:description" content="A tiny pixel pet toy starring Jack, Albert, Elda and Svetlana.">
   <meta property="og:url" content="https://abbydavid.com/pets/">
   <meta property="og:image" content="https://abbydavid.com/assets/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
@@ -41,21 +41,25 @@
       <p class="lede mono">Nothing here can go wrong. Take your time.</p>
 
       <noscript>
-        <p>This little toy needs JavaScript. Meanwhile: Jack (Chihuahua), Albert (cat), Elda (cat) and Shetland (cat) say hi.</p>
+        <p>This little toy needs JavaScript. Meanwhile: Jack (Chihuahua), Albert (cat), Elda (cat) and Svetlana (cat) say hi.</p>
       </noscript>
 
       <div id="app" hidden>
         <div class="picker" id="picker" role="group" aria-label="Choose a pet"></div>
 
-        <section class="room" aria-label="Pet room">
+        <section class="room" id="room" data-time="day" aria-label="Pet room">
           <p class="stamp" id="stamp" hidden>★ Whole crew</p>
           <div class="room-head mono">
             <span id="kind"></span>
             <span class="hearts" id="hearts" role="img" aria-label=""></span>
           </div>
           <div class="stage" id="stage">
-            <svg class="toy" id="toy" viewBox="0 0 6 6" shape-rendering="crispEdges" hidden aria-hidden="true"><path fill="#a94a2f" d="M2 0h2v1h-2zM1 1h4v1h-4zM0 2h6v2h-6zM1 4h4v1h-4zM2 5h2v1h-2z"/><path fill="#232321" d="M1 2h1v1h-1zM2 3h2v1h-2zM4 1h1v1h-1z"/></svg>
-            <svg class="bowl" id="bowl" viewBox="0 0 8 3" shape-rendering="crispEdges" hidden aria-hidden="true"><path fill="#a94a2f" d="M0 0h8v1h-8z"/><path fill="#232321" d="M1 1h6v1h-6zM2 2h4v1h-4z"/></svg>
+            <button type="button" class="window" id="window" aria-label="Look out the window">
+              <span class="sun" aria-hidden="true"></span><span class="bird" id="bird" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="cushion" id="cushion" aria-label="Cushion: a good spot for a nap"></button>
+            <svg class="toy" id="toy" viewBox="0 0 6 6" shape-rendering="crispEdges" hidden aria-hidden="true"><path class="c1" d="M2 0h2v1h-2zM1 1h4v1h-4zM0 2h6v2h-6zM1 4h4v1h-4zM2 5h2v1h-2z"/><path class="c2" d="M1 2h1v1h-1zM2 3h2v1h-2zM4 1h1v1h-1z"/></svg>
+            <svg class="bowl" id="bowl" viewBox="0 0 8 3" shape-rendering="crispEdges" hidden aria-hidden="true"><path class="c1" d="M0 0h8v1h-8z"/><path class="c2" d="M1 1h6v1h-6zM2 2h4v1h-4z"/></svg>
             <span class="sprite cat" id="sprite" aria-hidden="true"></span>
             <div class="fx" id="fx" aria-hidden="true"></div>
           </div>
@@ -66,8 +70,15 @@
             <button type="button" data-act="pet">Pet</button>
             <button type="button" data-act="play">Play</button>
           </div>
-          <p class="found" id="found" hidden></p>
         </section>
+
+        <section class="scrapbook" aria-labelledby="scrap-title">
+          <h2 id="scrap-title">Scrapbook <span class="mono" id="scrap-count"></span></h2>
+          <ul id="scrap" class="scrap"></ul>
+          <p class="mono scrap-hint">Things the pets find now and then. Nothing is ever missed for good.</p>
+        </section>
+
+        <p class="reset"><button type="button" id="reset">Reset saved pet data</button> <span class="mono">Everything is saved only in this browser.</span></p>
       </div>
     </div>
   </main>
