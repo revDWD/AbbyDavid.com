@@ -14,9 +14,10 @@ assets/         favicon, social image
 
 Open `index.html` in a text editor. Comments (`<!-- ... -->`) mark what to change.
 
-- **Project cards:** copy a `<li class="card">` block. Change the label (PROJECT, TOOL, RECIPE, GUIDE, TRAVEL, EXPERIMENT), title, text, and link. The card links currently point to `/projects/#...` pages that don't exist yet; replace them with real links when you have projects.
-- **Notes:** replace the "Coming soon" paragraph with `<li class="note">` items (an example is in the comment in `index.html`).
-- **GitHub link:** in the footer, replace `YOUR-GITHUB-USERNAME` with your GitHub name.
+- **Projects:** the homepage shows one `<article class="featured">` plus a short list of `<li class="entry">` items. Copy an entry, then change the number, type (TOOL, EXPERIMENT, PROJECT, GUIDE, RECIPE, BUILD, TRIP), date, status, title, description and link. Keep the homepage to a curated handful and list everything in `projects/index.html` (the full archive at `/projects/`). A screenshot slot for the featured project is in a comment.
+- **Status dot:** `<span class="status">` is a filled dot (live/done); `<span class="status concept">` is hollow (idea).
+- **Notes:** the Notes section is a quiet one-liner for now. A ready-to-use example is in the comment; when you have a first post, also add a "Notes" link to the nav.
+- **Footer date:** "Updated Nov 2026" is typed by hand. Change it when you update the site.
 - **Colors/fonts:** edit the `:root` block at the top of `styles.css`.
 
 ## Placeholders still to replace
@@ -47,7 +48,7 @@ Subdomains (e.g. `lab.abbydavid.com`) can later be separate GitHub repos with th
 3. Under **Custom domain**, enter `abbydavid.com` and save (the `CNAME` file already does this). Tick **Enforce HTTPS** once available.
 4. At your domain registrar, add DNS records:
    - `A` records for `abbydavid.com` pointing to `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-   - a `CNAME` record for `www` pointing to `YOUR-GITHUB-USERNAME.github.io`
+   - a `CNAME` record for `www` pointing to `revDWD.github.io`
 
    (Check GitHub's "Managing a custom domain" docs in case these have changed.)
 
