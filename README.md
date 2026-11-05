@@ -10,6 +10,8 @@ pets/           the little pet toy (/pets/): index.html + pets.js
 styles.css      all styling; colors and fonts are at the top
 theme.js        the light/dark switch (remembers the choice in localStorage)
 CNAME           tells GitHub Pages to use abbydavid.com
+robots.txt      points search engines at sitemap.xml
+sitemap.xml     the public pages; add new ones here
 assets/         favicon, social image, fonts/, pets/
 ```
 
@@ -57,7 +59,7 @@ about/index.html     ->  abbydavid.com/about/
 notes/my-post/index.html -> abbydavid.com/notes/my-post/
 ```
 
-Copy `index.html` as a starting point and change the `<title>`, `description`, `canonical`, and `og:*` tags so each page has its own sharing info. For post text, wrap it in `<article class="prose">`. If a guide ever includes affiliate links, put a `<p class="disclosure">` near the top saying so.
+Copy `index.html` as a starting point and change the `<title>`, `description`, `canonical`, and `og:*` tags so each page has its own sharing info, then add its URL to `sitemap.xml`. For post text, wrap it in `<article class="prose">`. If a guide ever includes affiliate links, put a `<p class="disclosure">` near the top saying so.
 
 Subdomains (e.g. `lab.abbydavid.com`) can later be separate GitHub repos with their own Pages settings and DNS records; nothing here needs to change.
 

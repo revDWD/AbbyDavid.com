@@ -19,7 +19,7 @@ Context for AI agents working on abbydavid.com (Abby + David's personal site).
 - Keep replies short. Finish with a concise report: what was built, caveats, what the user must do.
 
 ## Layout
-- `index.html`, `theme.js`, `styles.css` (shared design system and `.px` sprite classes, `.crew`), `404.html`, `projects/`, `pets/` (`index.html`, `pets.css`, `pets.js`), `assets/` (`og-image.png`, `apple-touch-icon.png`, `fonts/`, `pets/*.svg`).
+- `index.html`, `theme.js`, `styles.css` (shared design system and `.px` sprite classes, `.crew`), `404.html`, `robots.txt`, `sitemap.xml` (list new public pages), `projects/`, `pets/` (`index.html`, `pets.css`, `pets.js`), `assets/` (`og-image.png`, `apple-touch-icon.png`, `fonts/`, `pets/*.svg`).
 - Projects: EcoTox ID and AT Fitness Tracker (https://atfitnesstracker.abbydavid.com/, same repo and catalogue No. 01 as the former Oregon Trail DLE) are featured. Public Move and Spirit Bomb Donations stay **off the homepage** but remain in the projects archive.
 - Each page carries its own title, description, canonical, Open Graph and twitter tags (image 1200×630 with alt).
 
