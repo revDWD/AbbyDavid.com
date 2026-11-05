@@ -47,4 +47,4 @@ Context for AI agents working on abbydavid.com (Abby + David's personal site).
 - Check: no horizontal overflow, no console errors, no broken image paths, all four pets visible, keyboard use, weather success/failure/offline, reset, migration.
 
 ## Ideas not done
-- Real pet photos and hand-refined sprites, optional sound, longer About page, real Notes posts, per-project metadata pages.
+- Real pet photos and hand-refined sprites, optional sound, an About page (only with text Abby and David write themselves), real Notes posts, per-project metadata pages.
