@@ -10,6 +10,8 @@ pets/           the little pet toy (/pets/): index.html + pets.js
 styles.css      all styling; colors and fonts are at the top
 theme.js        the light/dark switch (remembers the choice in localStorage)
 CNAME           tells GitHub Pages to use abbydavid.com
+robots.txt      points search engines at sitemap.xml
+sitemap.xml     the public pages; add new ones here
 assets/         favicon, social image, fonts/, pets/
 ```
 
@@ -24,7 +26,6 @@ Open `index.html` in a text editor. Comments (`<!-- ... -->`) mark what to chang
 - **Weather:** the room window shows current St. Louis weather from [Open-Meteo](https://open-meteo.com/) (CC BY 4.0, no key, no geolocation). It is cached for 30 minutes in the visitor's browser; if it fails, a default room is shown. Time of day uses St. Louis time; small seasonal details use the visitor's date.
 - **Saved data:** hearts, scrapbook finds and the selected pet stay in the visitor's own browser (localStorage, key `abbydavid-pets-v1`; weather cache `abbydavid-weather-v1`). Nothing is sent anywhere, and the page has a Reset button. There is no sound.
 - **Footer date:** "Updated Nov 2026" is typed by hand. Change it when you update the site.
-- **About / Abby:** David's profile is written; Abby's is an open placeholder (`.profile.abby`). When she is ready, add her paragraphs above `.blank`, then delete `.blank` and the `.waiting` line. Don't add details about her until she gives them.
 - **Colors/fonts:** edit the tokens at the top of `styles.css`. Light values are in `:root`; dark values appear twice (once for `prefers-color-scheme`, once for `[data-theme="dark"]`), so change both.
 - **Light/dark:** follows the system setting; the header switch overrides it and saves the choice (`abbydavid-theme`). A short inline script in each page's `<head>` applies a saved choice before first paint. New pages need that script, the `theme-toggle` button in the nav, and `<script src="/theme.js" defer>`. The pet room keeps its own St. Louis time/weather lighting regardless of the site theme.
 
@@ -38,7 +39,7 @@ Self-hosted (no requests to font CDNs), all under the SIL Open Font License 1.1;
 
 ## Images
 
-- `assets/ecotox-id.webp`, `assets/oregon-trail-dle.webp`: screenshots of our own projects.
+- `assets/ecotox-id.webp`, `assets/at-fitness-tracker.webp`: screenshots of our own projects (the AT Fitness Tracker one is its pixel-art camp scene).
 - The framed specimen in the pet room is an original line drawing made for this site (CSS). No third-party images are used, so there is nothing to attribute. If you add one (for example a macro photo from Wikimedia Commons), record the creator, source URL and license here, and don't hotlink it.
 
 ## Placeholders still to replace
@@ -58,7 +59,7 @@ about/index.html     ->  abbydavid.com/about/
 notes/my-post/index.html -> abbydavid.com/notes/my-post/
 ```
 
-Copy `index.html` as a starting point and change the `<title>`, `description`, `canonical`, and `og:*` tags so each page has its own sharing info. For post text, wrap it in `<article class="prose">`. If a guide ever includes affiliate links, put a `<p class="disclosure">` near the top saying so.
+Copy `index.html` as a starting point and change the `<title>`, `description`, `canonical`, and `og:*` tags so each page has its own sharing info, then add its URL to `sitemap.xml`. For post text, wrap it in `<article class="prose">`. If a guide ever includes affiliate links, put a `<p class="disclosure">` near the top saying so.
 
 Subdomains (e.g. `lab.abbydavid.com`) can later be separate GitHub repos with their own Pages settings and DNS records; nothing here needs to change.
 
