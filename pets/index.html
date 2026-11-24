@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="color-scheme" content="light dark">
-  <script>(function(){var d=document.documentElement,t;try{t=localStorage.getItem("abbydavid-theme")}catch(e){}if(t!=="light"&&t!=="dark")t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";d.setAttribute("data-theme",t);d.style.colorScheme=t})()</script>
+  <script>(function(){var d=document.documentElement,t;try{var m=document.cookie.match(/(?:^|; )abbydavid-theme=(light|dark)/);t=m?m[1]:localStorage.getItem("abbydavid-theme")}catch(e){}if(t!=="light"&&t!=="dark")t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";d.setAttribute("data-theme",t);d.style.colorScheme=t})()</script>
   <title>Visit the pets · Abby + David</title>
   <meta name="description" content="A tiny pixel living room starring Jack, Albert, Elda and Svetlana, with the weather outside matching St. Louis.">
   <link rel="canonical" href="https://abbydavid.com/pets/">
@@ -35,6 +35,7 @@
       <nav class="site-nav" aria-label="Main">
         <ul>
           <li><a href="/#projects">Projects</a></li>
+          <li><a href="https://blog.abbydavid.com/">Workshop</a></li>
           <li><a href="/pets/" aria-current="page">Pets</a></li>
           <li><button class="theme-toggle" type="button" role="switch" aria-checked="false" hidden><span class="label">Dark mode</span><span class="track" aria-hidden="true"></span></button></li>
         </ul>

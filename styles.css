@@ -194,6 +194,12 @@ a:hover, a:focus-visible { color: var(--accent); background-size: 100% 1px, 100%
   .theme-toggle .track { width: 2.2rem; }
   .theme-toggle[aria-checked="true"] .track::after { transform: translateX(0.8rem); }
 }
+/* Phones: four nav items need the room, so the switch reads just "Dark" (its accessible name stays "Dark mode") */
+@media (max-width: 26rem) {
+  .theme-toggle .label, .theme-toggle .state { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .theme-toggle::before { content: "Dark"; content: "Dark" / ""; } /* shown, not announced */
+  .site-nav li > a { padding-inline: 0.35rem; }
+}
 /* a short, quiet colour change when the theme flips; skipped for reduced motion */
 @media (prefers-reduced-motion: no-preference) {
   body, .site-header, .site-footer { transition: background-color 0.3s ease, color 0.3s ease; }
