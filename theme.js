@@ -9,8 +9,13 @@
   var mq = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
   var COLORS = { light: "#f4eee1", dark: "#181512" };
 
+  // The choice is also kept in a .abbydavid.com cookie, so it carries over to blog.abbydavid.com and back.
   function saved() {
-    try { var t = localStorage.getItem(KEY); return t === "light" || t === "dark" ? t : null; } catch (e) { return null; }
+    try {
+      var c = document.cookie.match(/(?:^|; )abbydavid-theme=(light|dark)/);
+      var t = c ? c[1] : localStorage.getItem(KEY);
+      return t === "light" || t === "dark" ? t : null;
+    } catch (e) { return null; }
   }
   function apply(t) {
     root.setAttribute("data-theme", t);
@@ -35,6 +40,9 @@
       var next = current() === "dark" ? "light" : "dark";
       apply(next);
       try { localStorage.setItem(KEY, next); } catch (e) { /* private mode: the choice lasts for this visit */ }
+      if (location.hostname.slice(-13) === "abbydavid.com") {
+        document.cookie = KEY + "=" + next + "; Domain=.abbydavid.com; Path=/; Max-Age=31536000; SameSite=Lax; Secure";
+      }
     });
   }
 
